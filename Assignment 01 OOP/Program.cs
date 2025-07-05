@@ -43,24 +43,39 @@ namespace Assignment_01_OOP
 
 
             #region 3 - Assign the following Permissions(Read, write, Delete, Execute) in a form of Enum Create Variable from previous Enum to Add and Remove Permission from variable, check if specific Permission existed inside variable
-            Permissions permissions = Permissions.Write | Permissions.Delete; 
-            if((permissions & Permissions.Delete) == Permissions.Delete)
-            {
-                Console.WriteLine("Delete permission is allowed.");
-            }
-            if  ((permissions & Permissions.Write) == Permissions.Write)
-            {
-                Console.WriteLine("Write permission is allowed.");
-            }
-          
-            else
-            {
-                Console.WriteLine(" permission is not allowed.");
-            }
+            //Permissions permissions = Permissions.Write | Permissions.Delete; 
+            //if((permissions & Permissions.Delete) == Permissions.Delete)
+            //{
+            //    Console.WriteLine("Delete permission is allowed.");
+            //}
+            //if  ((permissions & Permissions.Write) == Permissions.Write)
+            //{
+            //    Console.WriteLine("Write permission is allowed.");
+            //}
+
+            //else
+            //{
+            //    Console.WriteLine(" permission is not allowed.");
+            //}
 
             #endregion
 
+            #region 4.Create an Enum called "Colors" with the basic colors (Red, Green, Blue) as its members. Write a C# program that takes a color name as input from the user and displays a message indicating whether the input color is a primary color or not.
 
+            string c = Console.ReadLine();
+
+            Colors color;
+            bool isParsed = Enum.TryParse<Colors>(c, true, out color);
+
+            if (isParsed)
+            {
+                Console.WriteLine($"{c} is a primary color.");
+            }
+            else
+            {
+                Console.WriteLine($"{c} is NOT a primary color.");
+            }
+            #endregion
         }
 
     }
@@ -92,5 +107,12 @@ namespace Assignment_01_OOP
         Write =2,//00000010
         Delete =4,//00000100
         Execute = 8//00001000
+    }
+
+    enum Colors
+    {
+        Red,
+        Green,
+        Blue
     }
 }
